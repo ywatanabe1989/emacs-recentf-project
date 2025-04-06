@@ -1,0 +1,21 @@
+#+TITLE: Elisp Test Report
+#+AUTHOR: ywatanabe
+#+DATE: 2025-04-06 14:55:03 Created by https://github.com/ywatanabe1989/emacs-test
+
+* Test Results Summary
+
+- Passed: 4
+- Failed: 0
+- Skipped: 0
+- Timeout (= 10 s): 0
+- Duplicates: 0
+- Total: 4
+- Total Time: 0.34 seconds
+- Success Rate: 100.0%
+
+* Passed Tests (4)
+** test-emacs-recentf-project.el (4 tests)
+- [[file:test-emacs-recentf-project.el::emacs-recentf-project-project-file-test][emacs-recentf-project-project-file-test]]
+- [[file:test-emacs-recentf-project.el::emacs-recentf-project-add-test][emacs-recentf-project-add-test]]
+- [[file:test-emacs-recentf-project.el::emacs-recentf-project-switch-test][emacs-recentf-project-switch-test]]
+- [[file:test-emacs-recentf-project.el::emacs-recentf-project-mode-test][emacs-recentf-project-mode-test]]

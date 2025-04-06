@@ -1,0 +1,5 @@
+(undo-tree-save-format-version . 1)
+"c0ced9df96506296eee933ad159b92d7b6b6335f"
+[nil nil nil nil (26610 2314 1385 199000) 0 nil]
+([nil current ((74 . 75) (#("0" 0 1 (wrap-prefix "" line-prefix "" fontified nil)) . 74) (t 26610 2290 579026 377000)) nil (26610 2314 1377 183000) 0 nil])
+nil
