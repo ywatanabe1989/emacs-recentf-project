@@ -1,6 +1,6 @@
 ;;; -*- coding: utf-8; lexical-binding: t -*-
 ;;; Author: ywatanabe
-;;; Timestamp: <2025-04-06 14:52:22>
+;;; Timestamp: <2025-04-06 15:04:02>
 ;;; File: /home/ywatanabe/.dotfiles/.emacs.d/lisp/emacs-recentf-project/emacs-recentf-project.el
 
 ;;; Copyright (C) 2025 Yusuke Watanabe (ywatanabe@alumni.u-tokyo.ac.jp)
@@ -201,14 +201,28 @@
                                     (emacs-recentf-project-get-available)
                                     nil t nil nil
                                     emacs-recentf-project-current)))
-      ;; Special handling for global project
-      (when (string= project emacs-recentf-project-global-name)
-        (emacs-recentf-project-update-global))
-      ;; Switch to the selected project
-      (emacs-recentf-project-switch project)
-      ;; Refresh the dialog
-      (recentf-cancel-dialog)
-      (recentf-open-files)))
+      (if (string= project emacs-recentf-project-global-name)
+          ;; Special handling for global project
+          (progn
+            ;; 1. Compile all project recentf files into one global file
+            (emacs-recentf-project-update-global)
+            ;; 2. Cancel current dialog
+            (recentf-cancel-dialog)
+            ;; 3. Set recentf-save-file to global file
+            (setq recentf-save-file (emacs-recentf-project-file
+                                     emacs-recentf-project-global-name))
+            ;; 4. Load the global recentf file
+            (recentf-load-list)
+            ;; 5. Update current project
+            (setq emacs-recentf-project-current
+                  emacs-recentf-project-global-name)
+            ;; 6. Open recentf dialog with global view
+            (recentf-open-files))
+        ;; Non-global project handling
+        (emacs-recentf-project-switch project)
+        ;; Refresh the dialog
+        (recentf-cancel-dialog)
+        (recentf-open-files))))
    (t
     (recentf-open-files))))
 
